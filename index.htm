@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11136023</title>
+    <!-- 引入 Google Fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kalnia:wght@400;600&display=swap');
+
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;800&display=swap');
+
+        /* 全域樣式設定 */
+        html {
+            scroll-behavior: smooth;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        /* Body 樣式 */
+        body {
+            margin: 0;
+            background-color: 	#C4E1FF;
+            font-family: 'Kalnia', serif;
+        }
+        /* 包裹區塊樣式 */
+        .wrap {
+            width: 940px;
+            margin: 20px auto;
+
+        }
+        /* 標題二樣式 */
+        h2 {
+            font-weight: normal;
+            margin: 20px 0;
+        }
+        /* 區段樣式 */
+        section {
+            font-size: 30px;
+            width: 100%;
+            height: 500px;
+            padding: 10px 30px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            background-color: #ECF5FF;    
+            display: flex;/* 物體水平放 */
+            gap: 15px;/* 物體之間的距離 */
+        }
+        /* 頁首樣式 */
+        header {
+            z-index: 2; /* 高於地圖的 z-index */
+            width: 100%;
+            height: 80px;
+            margin-bottom: 20px;
+            padding: 0px 30px;
+            border-radius: 20px;
+            background-color: 	#F0F0F0;
+            display: flex;/* 標籤左右排列 */
+            align-items: center;/* 元素上下居中 */
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 0 10px 0 #003060;
+        }
+        /* 頁首超連結樣式 */
+        header a {
+            color: #003060;
+            display: block;
+            text-decoration: none;
+        }
+        header h1 {
+            margin-right: auto;
+            text-align: center;
+
+        }
+        /* 頁首選單樣式 */
+        ul.menu {
+            /* 選單橫向排列 */
+            display: flex;
+            /* 把圓點去掉 */
+            list-style: none;
+            /* 清除額外空間 */
+            padding: 0;
+            margin: 0;
+            gap: 12px;
+        }
+        /* 平時超連結的狀態 */
+        ul.menu a {
+            text-align: center;
+            font-size: 15px;
+            padding: 10px 10px;
+        }
+        /* :hover當滑鼠移動到超連結後產生的事件 */
+        ul.menu a:hover {
+            background-color: #66B3FF;
+            border-radius: 20px;
+        }
+        .card {
+        width: 215px;
+        padding: 60px 0px 0px 0px;
+        margin-bottom: 50px; /* 增加卡片之間的間距 */
+        max-height: 300px; /* 根據需要調整卡片的最大高度 */
+        margin-right: 10px; /* 新增右側間距 */
+        }
+        .cardmove {
+        position: relative;
+        display: flex;
+        justify-content: flex-start; /* 將內容靠左對齊 */
+        top: 0px; /* 元素向下移動 像素 */
+        right: 185px; /* 元素向左移動 像素 */
+        }
+        .card-image {
+        color: #FFFFFF;
+        font-size: 30px;
+        text-align: center;
+        /* 圖片中文字上下居中 */
+        line-height: 130px;
+        width: 100%;
+        height: 130px;
+        border-radius: 20px;
+        margin-bottom: 5px; /* 增加與下方按鈕的間距 */
+        }
+        .card-intro {
+        font-size: 13px;
+        line-height: 20px;
+        padding: 0px 16px;
+        height: 130px;
+        margin-top: 0px; 
+        margin-bottom: 70px; /* 增加與下方按鈕的間距 */
+        font-family: 'Noto Sans TC', sans-serif;
+        }
+        .button {
+        font-size: 15px;
+        width: 100%;
+        line-height: 10px;
+        border-radius: 20px;
+        border: 2px solid #003060;
+        text-align: center;
+        padding: 10px 16px; /* 調整內部間距 */
+        margin-top: 5px; /* 調整與上方元素的間距 */
+        display: inline-block; /* 讓按鈕可以正確放置在一行內 */
+        }
+        .toy1 .card-image {
+        position: relative;
+        overflow: hidden;
+        background-image: url('img/1.jpeg');
+        background-size: cover;
+        background-position: center center; /* 調整背景圖像位置為中心 */
+        }
+        .toy2 .card-image {
+        position: relative;
+        overflow: hidden;
+        background-image: url('img/5.jpeg');
+        background-size: cover;
+        background-position: center center; /* 調整背景圖像位置為中心 */
+        }
+        .toy3 .card-image {
+        position: relative;
+        overflow: hidden;
+        background-image: url('img/3.jpeg');
+        background-size: cover;
+        background-position: center center; /* 調整背景圖像位置為中心 */
+        }
+        .toy4 .card-image {
+        position: relative;
+        overflow: hidden;
+        background-image: url('img/6.jpeg');
+        background-size: cover;
+        background-position: center center; /* 調整背景圖像位置為中心 */
+        }
+        main {
+        color: white;
+        padding-top: 40px;
+        padding-left: 20px;
+        width: 100%;
+        height: 295px;
+        background-image: url(img/woody.jpeg);
+        background-size: cover;
+        border-radius: 20px;
+        text-shadow: 0 0 5px #000000;
+        margin-bottom: 10px;
+        }
+        .main-title {
+        font-size: 60px;
+        line-height: 60px;
+        width: 300px;
+        }
+        .main-intro {
+        font-size: 20px;
+        line-height: 50px;
+        }
+        footer {
+        padding-top: 10px;
+        text-align: center; /* 讓所有內容置中 */
+        font-size: 13px;
+        text-align: center;
+        width: 940px;
+        line-height: 30px;
+        background-color: #F0F0F0;
+        border-top: 5px solid#003060;
+        border-radius: 20px;
+        margin: 0 auto;
+        }
+        footer a {
+        margin-right: 10px; /* 調整圖示之間的右邊距 */
+        }
+        footer p {
+        margin-top: 0px; /* 調整文字與圖示之間的上邊距 */
+        color: #003060;
+        }
+        .contactall {
+        display: flex;
+        position: relative;
+        justify-content: flex-start; /* 内容靠左對齊 */
+        top: 20px; /* 元素向下移動像素 */
+        right: 150px; /* 内容向左移動像素 */
+        margin-right: 20px; /* 增加右邊間距 */
+        }
+        .contact h4{
+        font-size: 20px;
+        margin-bottom: 10px; /* 減少下邊距 */
+        padding-top: 50px;
+        padding-left: 10px;
+        font-weight: normal;
+        text-align: left;
+        font-family: 'Noto Sans TC', sans-serif;
+        }
+        .contact ul {
+        display: inline-block; /* 讓按鈕可以正確放置在一行內 */
+        margin-top: 10px; /* 調整上邊距大小 */
+        padding-left: 0; /* 清除 ul 的預設內邊距 */
+        }
+        .contact li{
+        font-size: 16px;
+        margin-bottom: 15px;
+        /*list-style-type: none;*/
+        display: flex; /* 將 li 元素轉換為 flexbox */
+        }
+        .contact li i {
+        margin-right: 10px; /* 調整圖示和文本之間的間距 */
+        }
+        .map{
+        z-index: 1; /* 或者試試其他數字 */
+        margin-left: 50px; /* 增加左邊間距 */
+        margin-bottom: 10px; /* 減少下邊距 */
+        padding-top: 50px;
+        padding-left: 10px;
+        font-weight: normal;
+        text-align: left;
+        }
+        .spacer {
+        width: 60px;/* 間距高度 */
+        }
+        .about p{
+        font-size: 18px;
+        font-family: 'Noto Sans TC', sans-serif;
+        }
+        /* 將 .gallery 設置為相對位置 */
+        .gallery {
+        position: relative;
+        top: 85px; /* 元素向下移動 像素 */
+        right: 100px; /* 元素向左移動 像素 */
+        }
+        /* 將 .slides 設置為 flexbox 並隱藏水平溢出 */
+        .slides {
+        display: flex;
+        overflow-x: hidden;
+        width: 100%;
+        }
+        /* .slide 用於包裝圖片及文字的容器 */
+        .slide {
+        position: relative; /* 設定相對定位，用於 .caption 的絕對定位參考 */
+        }
+        /* .caption 用於顯示圖片上的文字 */
+        .caption {
+        position: absolute; /* 絕對定位，相對於 .slide 進行定位 */
+        bottom: 0px; /* 調整文字在圖片底部的位置 */
+        left: 0;
+        right: 0;
+        text-align: center; /* 文字置中 */
+        background-color: rgba(255, 255, 255, 0.7); /* 設置文字背景色，可自行調整 */
+        padding: 5px; /* 文字內容與邊框的間距 */
+        font-size: 20px; /* 文字大小 */
+        }
+        /* 設置 .slides 內圖片的寬度為100%，高度自動調整 */
+        .slides img {
+        width: 100%;
+        height: auto;
+        z-index: 2; /* 提高 z-index 的值，確保在主內容之上 */
+        }
+        .button-container {
+        display: flex;
+        justify-content: space-between; /* 將按鈕放置在容器的兩側 */
+        margin-top: 10px; /* 調整按鈕和圖片之間的上邊距 */
+        z-index: 2;
+        }
+        .back-button{
+        padding: 5px 10px;
+        background-color: #F0F0F0;
+        border-radius: 20px;
+        cursor: pointer;
+        color: #003060;
+        font-size: 15px;
+        border: 1px solid #003060;
+        }
+        .next-button {
+        padding: 5px 10px;
+        background-color: #F0F0F0;
+        border-radius: 20px;
+        cursor: pointer;
+        color: #003060;
+        font-size: 15px;
+        border: 1px solid #003060;
+        }
+        .classical{
+        height: 270px;
+        display: flex;
+        position: relative;
+        justify-content: flex-start; /* 内容靠左對齊 */
+        top: 130px; /* 元素向下移動像素 */
+        right: 260px; /* 内容向左移動像素 */
+        }
+        .classical .image-hover {
+        width: 450px;
+        height: auto;
+        transition: filter 0.3s ease; /* 添加過渡效果，使變化更平滑 */
+        }
+        /* 外層容器 */
+        .classical .image-container {
+        position: relative;
+        width: 450px;
+        height: 265px;
+        overflow: hidden; /* 隱藏超出容器的內容 */
+        margin-left: 20px; /* 增加左邊間距 */
+        }
+        /* 文字樣式 */
+        .classical .image-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%; /* 讓文字寬度與容器一致 */
+        height: 95%; /* 讓文字高度與容器一致 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.5); /* 半透明背景色 */
+        color: white; /* 文字顏色 */
+        opacity: 0; /* 初始時透明 */
+        transition: opacity 0.3s ease; /* 添加過渡效果，使變化更平滑 */
+        }
+        /* 滑鼠滑過時文字顯示 */
+        .classical .image-container:hover .image-text {
+        opacity: 1; /* 滑鼠移上時顯示文字 */
+        }
+        mark.yellow {
+	    background: linear-gradient(transparent 40%,rgba(255,255,255,0) 40%, #FFF176 90%,transparent 95%);	
+        padding: 2px 1px;
+        }
+        mark.blue {
+	    background: linear-gradient(transparent 40%,rgba(255,255,255,0) 40%, #8cbdf5 90%,transparent 95%);	
+        padding: 2px 1px;
+        }
+        mark.green {
+	    background: linear-gradient(transparent 40%,rgba(255,255,255,0) 40%, #8cf5de 90%,transparent 95%);	
+        padding: 2px 1px;
+        }
+        mark.pink {
+	    background: linear-gradient(transparent 40%,rgba(255,255,255,0) 40%, #e692cd 90%,transparent 95%);	
+        padding: 2px 1px;
+        }
+        mark.purple {
+	    background: linear-gradient(transparent 40%,rgba(255,255,255,0) 40%, #c895f1 90%,transparent 95%);	
+        padding: 2px 1px;
+        }
+        mark.orange {
+	    background: linear-gradient(transparent 40%,rgba(255,255,255,0) 40%, #f5bf8c 90%,transparent 95%);	
+        padding: 2px 1px;
+        }
+        mark.red {
+	    background: linear-gradient(transparent 40%,rgba(255,255,255,0) 40%, #fa8686 90%,transparent 95%);	
+        padding: 2px 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- 頁首 -->
+        <header>
+            <h1 class="logo"><a href="index.htm"><mark class="yellow">TOY STORY</mark></a></h1>
+            <!-- 頁首選單 -->
+            <ul class="menu">
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#video">VIDEO</a></li>
+                <li><a href="#history">HISTORY</a></li>
+                <li><a href="#character">CHARACTER</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+                <li><a href="#classical">CLASSICAL</a></li>
+
+            </ul>
+        </header>
+        <main>
+            <h1 class="main-title">
+            TOY STORY
+            </h1>
+            <h3 class="main-intro">
+                "You've got a friend in me."
+            </h3>
+        </main>
+        <!-- About 區段 -->
+        <section id="about">
+            <div class="about">
+            <h2><mark class="blue">About</mark></h2>
+            <p>
+                《玩具總動員》是皮克斯動畫工作室於1995年推出的一部動畫電影，也是該工作室的第一部長篇動畫電影。故事圍繞著一隻名叫胡迪的牛仔玩偶展開。這位牛仔玩偶是個有領袖氣質的好友，他和其他玩具們的日常生活和互動成為了這部電影的主要情節。而故事的轉折點是當主人安迪收到了一個全新的太空玩具巴斯光年作為禮物。伍迪因此感到受到威脅，因為他認為自己將會失去在安迪心中的地位。這對玩具之間的競爭和合作，以及他們如何一起克服困難的故事，成為了這部動畫的核心。
+            <br>
+            <br>
+            "Toy Story" is an animated film released by Pixar Animation Studios in 1995 and marked as their first feature-length animated movie. The narrative primarily revolves around a cowboy doll named "Woody." He is portrayed as a charismatic leader and the story primarily focuses on his daily life and interactions with other toys. However, the story takes a dramatic turn when Andy, their owner, receives a new space toy named "Buzz Lightyear" as a gift. This arrival of Buzz makes Woody feel threatened as he fears losing his place in Andy's heart. The movie beautifully portrays the rivalry, cooperation between these toys, and how they overcome challenges together, becoming the central theme of the animated film.
+            </p>
+            </div>
+        </section>
+        <!-- video 區段 -->
+        <section id="video">
+            <h2><mark class="green">Video</mark></h2>
+                    <!-- YouTube 嵌入式視頻代碼 -->
+                    <iframe width="650" height="350" src="https://www.youtube.com/embed/ALZNQmRHmPE?si=pTJVUvpbTnAbCWsR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="margin-top: 100px;"        
+                    ></iframe>              
+        </section>
+        <!-- history 區段 -->
+        <section id="history">
+            <h2><mark class="pink">History</mark></h2>
+            <div class="cardmove">
+            <div class="card toy1">
+                <h4 class="card-image">
+                    Tory Story 1
+                </h4> 
+                <p class="card-intro">
+                    《玩具總動員》-1995年-<br>
+                    是美國首部完全由CGI製作的長片，由約翰·拉薩特執導。故事講述富有想像力的安弟得到新的巴斯光年玩具，導致胡迪牛仔玩偶感到取代。胡迪意外將巴斯擲出窗外，被誤認謀害巴斯。兩者合作逃離折磨玩具的鄰居阿薛家。影片獲得好評並成功，全球票房超過3.61億美元。                </p>
+                <a href="https://zh.wikipedia.org/zh-tw/%E7%8E%A9%E5%85%B7%E7%B8%BD%E5%8B%95%E5%93%A1%E7%B3%BB%E5%88%97%E9%9B%BB%E5%BD%B1" class="button">Learn more about</a>
+            </div>
+            <div class="card toy2">
+                <h4 class="card-image">
+                    Tory Story 2
+                </h4> 
+                <p class="card-intro">
+                    《玩具總動員2》-1999年-<br>
+                    由約翰·拉薩特執導，故事講述胡迪被貪婪的玩具收藏家艾爾偷走，巴斯和安弟玩具展開營救行動。胡迪發現自己是歷史悠久的電視明星。最初計劃作為錄影帶首映。但迪士尼因高品質內容和湯姆·漢克斯、蒂姆·艾倫的壓力，將其改編成院線電影。這部續集比原作更成功。                </p>
+                <a href="https://zh.wikipedia.org/zh-tw/%E7%8E%A9%E5%85%B7%E7%B8%BD%E5%8B%95%E5%93%A1%E7%B3%BB%E5%88%97%E9%9B%BB%E5%BD%B1" class="button">Learn more about</a>
+            </div>
+            <div class="card toy3">
+                <h4 class="card-image">
+                    Tory Story 3
+                </h4> 
+                <p class="card-intro">
+                    《玩具總動員3》-2010年-<br>
+                    距離前作11年後的續集。由首部電影的編輯師、第二部電影的聯合導演李·安克里奇執導。故事描述玩具們被主人安弟遺失在陽光托兒所，其中超過150個新角色亮相。這部仍是皮克斯迄今最賣座的作品。其票房更超過前兩部的總和，成為首部超過10億美元票房的動畫電影。
+                </p>
+                <a href="https://zh.wikipedia.org/zh-tw/%E7%8E%A9%E5%85%B7%E7%B8%BD%E5%8B%95%E5%93%A1%E7%B3%BB%E5%88%97%E9%9B%BB%E5%BD%B1" class="button">Learn more about</a>
+            </div>
+            <div class="card toy4">
+                <h4 class="card-image">
+                    Tory Story 4
+                </h4> 
+                <p class="card-intro">
+                    《玩具總動員4》-2019年-<br>
+                    胡迪認為照顧主人是他的使命，不論是過去的安弟還是現在的邦妮。但當邦妮做了一個不想當玩具的叉奇，胡迪面臨新玩具的挑戰。叉奇不接受自己是玩具的身份，試圖離開，胡迪追尋他。胡迪和寶貝展開一連串冒險，最後決定重新定義玩具意義，離開邦妮，展開全新旅程。
+                </p>
+               <!--- <button class="button">Learn more about</button> -->
+                <a href="https://zh.wikipedia.org/zh-tw/%E7%8E%A9%E5%85%B7%E7%B8%BD%E5%8B%95%E5%93%A1%E7%B3%BB%E5%88%97%E9%9B%BB%E5%BD%B1" class="button">Learn more about</a>
+            </div>
+        </div>
+        </section>
+        <!-- Character 區段 -->
+        <section id="character">
+            <h2><mark class="purple">Character</mark></h2>
+            <div class="gallery">
+                <div class="slides">
+                    <div class="slide">
+                        <img src="img/alien.jpeg" >
+                        <div class="caption">Alien</div>
+                    </div>
+                    <div class="slide">
+                        <img src="img/woodyy.jpeg" >
+                        <div class="caption">Woody</div>
+                    </div>
+                    <div class="slide">
+                        <img src="img/rex.jpeg" >
+                        <div class="caption">Rex</div>
+                    </div>
+                    <div class="slide">
+                        <img src="img/jessie.jpeg" >
+                        <div class="caption">Jessie</div>
+                    </div>
+                    <div class="slide">
+                        <img src="img/buzz.jpeg" >
+                        <div class="caption">Buzz Lightyear</div>
+                    </div>
+                    <div class="slide">
+                        <img src="img/pig.jpeg" >
+                        <div class="caption">Hamm</div>
+                    </div>
+                    <div class="slide">
+                        <img src="img/pinkbear.jpeg" >
+                        <div class="caption">Lots-O'-Huggin' Bear</div>
+                    </div>
+                    <div class="slide">
+                        <img src="img/doll.jpeg" >
+                        <div class="caption">Dolly</div>
+                    </div>
+                    <div class="slide">
+                        <img src="img/baby.jpeg" >
+                        <div class="caption">Big Baby</div>
+                    </div>
+                    <div class="slide">
+                        <img src="img/sy.jpeg" >
+                        <div class="caption">Mr. Pricklepants</div>
+                    </div>
+                    <div class="slide">
+                        <img src="img/dog.jpeg" >
+                        <div class="caption">Slinky Dog</div>
+                    </div>
+                    <div class="slide">
+                        <img src="img/bean.jpeg" >
+                        <div class="caption">Peas-In-A-Pod</div>
+                    </div>
+                    <div class="slide">
+                        <img src="img/tel.jpeg" >
+                        <div class="caption">Chatter Telephone</div>
+                    </div>
+                    <div class="slide">
+                        <img src="img/horse.jpeg" >
+                        <div class="caption">Buttercup</div>
+                    </div>
+                    <div class="slide">
+                        <img src="img/purple.jpeg" >
+                        <div class="caption">Stretch</div>
+                    </div>
+                    <div class="slide">
+                        <img src="img/frog.jpeg" >
+                        <div class="caption">Bookworm</div>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button onclick="backSlide()" class="back-button"><i class="fas fa-arrow-left"></i> Back</button>
+                    <button onclick="nextSlide()" class="next-button">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <script src="img.js"></script>
+        </section>
+        <!-- Contact 區段 -->
+        <section id="contact">
+            <h2><mark class="orange">Contact</mark></h2>
+            <div class="contactall">
+                <div class="contact">
+                    <h4>聯繫資訊</h4>
+                    <ul>
+                        <li>
+                            <i class="fas fa-phone-alt"></i> <a href="#">(877)466-6669</a>
+                        </li>
+                        <li>
+                            <i class="far fa-envelope"></i> <a href="mailto:privacycontact@twdc.com">privacycontact@twdc.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/KtshBL6QCWBYrWC46">500 south buena vista street
+                            mail code 7830
+                            burbank, ca 91521-7830
+                            united states of america</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3301.6281777727386!2d-118.33022561487599!3d34.1558536429543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bfc3c6e72393%3A0x2f1680d5b57e095d!2sThe%20Walt%20Disney%20Studios!5e0!3m2!1szh-TW!2stw!4v1702903249856!5m2!1szh-TW!2stw" width="500" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+        <!-- classical區段 -->
+        <section id="classical">
+            <h2><mark class="red">Classical</mark></h2>
+            <div class="classical">
+                <a href="music.htm">
+                    <div class="image-container">
+                        <img src="img/4.jpeg" class="image-hover">
+                        <span class="image-text">MOVIE MUSIC</span>
+                    </div>
+                </a>
+                <a href="lines.htm">
+                    <div class="image-container">
+                        <img src="img/2.jpeg" class="image-hover">
+                        <span class="image-text">MOVIE LINES</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- footer -->
+ 
+    <footer>
+        <div class="footer">
+        <!-- 使用 Font Awesome 的 Twitter 圖示 -->
+        <a href="https://www.facebook.com/disneymoviesTaiwan/?locale=zh_TW" target="_blank"><i class="fab fa-facebook fa-3x" style="color: #003060;"></i></a>
+        <a href="https://twitter.com/disneychannel?lang=zh-Hant" target="_blank"><i class="fab fa-twitter fa-3x" style="color: #003060;"></i></a>
+        <a href="https://www.instagram.com/disney/" target="_blank"><i class="fab fa-instagram fa-3x" style="color: #003060;"></i></a>
+        <p>© 2023 Design by 11136023. Disney Pixar. All Rights Reserved.</p>
+    </div>
+    </footer>
+</body>
+</html>

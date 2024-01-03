@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11136023</title>
+    <!-- 引入 Google Fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kalnia:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;800&display=swap');
+
+        /* 全域樣式設定 */
+        html {
+            scroll-behavior: smooth;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        /* Body 樣式 */
+        body {
+            margin: 0;
+            background-color: 	#C4E1FF;
+            font-family: 'Kalnia', serif;
+        }
+        /* 包裹區塊樣式 */
+        .wrap {
+            width: 940px;
+            margin: 20px auto;
+        }
+        /* 標題二樣式 */
+        h2 {
+            font-weight: normal;
+            margin: 20px 0;
+        }
+        /* 區段樣式 */
+        section {
+            font-size: 30px;
+            width: 100%;
+            height: 3350px;
+            padding: 10px 30px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            background-color: #ECF5FF;    
+            display: flex;/* 物體水平放 */
+            gap: 15px;/* 物體之間的距離 */
+        }
+        /* 頁首樣式 */
+        header {
+            z-index: 2; /* 高於地圖的 z-index */
+            width: 100%;
+            height: 80px;
+            margin-bottom: 20px;
+            padding: 0px 30px;
+            border-radius: 20px;
+            background-color: 	#F0F0F0;
+            display: flex;/* 標籤左右排列 */
+            align-items: center;/* 元素上下居中 */
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 0 10px 0 #003060;
+        }
+        /* 頁首超連結樣式 */
+        header a {
+            color: #003060;
+            display: block;
+            text-decoration: none;
+        }
+        header h1 {
+            margin-right: auto;
+            text-align: center;
+        }
+        /* 頁首選單樣式 */
+        ul.menu {
+            /* 選單橫向排列 */
+            display: flex;
+            /* 把圓點去掉 */
+            list-style: none;
+            /* 清除額外空間 */
+            padding: 0;
+            margin: 0;
+            gap: 12px;
+        }
+        /* 平時超連結的狀態 */
+        ul.menu a {
+            text-align: center;
+            font-size: 15px;
+            padding: 10px 10px;
+        }
+        /* :hover當滑鼠移動到超連結後產生的事件 */
+        ul.menu a:hover {
+            background-color: #66B3FF;
+            border-radius: 20px;
+        }
+        footer {
+        padding-top: 10px;
+        text-align: center; /* 讓所有內容置中 */
+        font-size: 13px;
+        text-align: center;
+        width: 940px;
+        line-height: 30px;
+        background-color: #F0F0F0;
+        border-top: 5px solid#003060;
+        border-radius: 20px;
+        margin: 0 auto;
+        }
+        footer a {
+        margin-right: 10px; /* 調整圖示之間的右邊距 */
+        }
+        footer p {
+        margin-top: 0px; /* 調整文字與圖示之間的上邊距 */
+        color: #003060;
+        }
+        .card {
+        width: 800px;
+        margin-bottom: 50px; /* 增加卡片之間的間距 */
+        max-height: 300px; /* 根據需要調整卡片的最大高度 */
+        margin-right: 10px; /* 新增右側間距 */
+        }
+        .cardmove {
+        text-align: center;
+        position: relative;
+        justify-content: flex-start; /* 將內容靠左對齊 */
+        top: 0px; /* 元素向下移動 像素 */
+        left: 50px; /* 元素向右移動 像素 */
+        }
+        .card-image {
+        color: #FFFFFF;
+        font-size: 30px;
+        text-align: center;
+        /* 圖片中文字上下居中 */
+        line-height: 130px;
+        width: 100%;
+        height: 250px;
+        border-radius: 20px;
+        margin-bottom: 5px; /* 增加與下方按鈕的間距 */
+        }
+
+        .button {
+        font-family: 'Noto Sans TC', sans-serif;
+        font-size: 15px;
+        width: 100%;
+        line-height: 20px;
+        border-radius: 20px;
+        border: 2px solid #003060;
+        text-align: center;
+        padding: 10px 16px; /* 調整內部間距 */
+        margin-top: 5px; /* 調整與上方元素的間距 */
+        display: inline-block; /* 讓按鈕可以正確放置在一行內 */
+        }
+        .toy1 .card-image {
+        position: relative;
+        overflow: hidden;
+        background-image: url('img/01.jpeg');
+        background-size: cover;
+        background-position: center center; /* 調整背景圖像位置為中心 */
+        }
+        .toy2 .card-image {
+        position: relative;
+        overflow: hidden;
+        background-image: url('img/02.jpeg');
+        background-size: cover;
+        background-position: center center; /* 調整背景圖像位置為中心 */
+        }
+        .toy3 .card-image {
+        position: relative;
+        overflow: hidden;
+        background-image: url('img/03.jpeg');
+        background-size: cover;
+        background-position: center center; /* 調整背景圖像位置為中心 */
+        }
+        .toy4 .card-image {
+        position: relative;
+        overflow: hidden;
+        background-image: url('img/04.jpeg');
+        background-size: cover;
+        background-position: center center; /* 調整背景圖像位置為中心 */
+        }
+        .toy5 .card-image {
+        position: relative;
+        overflow: hidden;
+        background-image: url('img/05.jpeg');
+        background-size: cover;
+        background-position: center center; /* 調整背景圖像位置為中心 */
+        }
+        .toy6 .card-image {
+        position: relative;
+        overflow: hidden;
+        background-image: url('img/06.jpeg');
+        background-size: cover;
+        background-position: center center; /* 調整背景圖像位置為中心 */
+        }
+        .toy7 .card-image {
+        position: relative;
+        overflow: hidden;
+        background-image: url('img/07.jpeg');
+        background-size: cover;
+        background-position: center center; /* 調整背景圖像位置為中心 */
+        }
+        .toy8 .card-image {
+        position: relative;
+        overflow: hidden;
+        background-image: url('img/08.jpeg');
+        background-size: cover;
+        background-position: center center; /* 調整背景圖像位置為中心 */
+        }
+        .toy9 .card-image {
+        position: relative;
+        overflow: hidden;
+        background-image: url('img/09.jpeg');
+        background-size: cover;
+        background-position: center center; /* 調整背景圖像位置為中心 */
+        }
+        mark.red {
+	    background: linear-gradient(transparent 40%,rgba(255,255,255,0) 40%, #fa8686 90%,transparent 95%);	
+        padding: 2px 1px;
+        }
+        mark.yellow {
+	    background: linear-gradient(transparent 40%,rgba(255,255,255,0) 40%, #FFF176 90%,transparent 95%);	
+        padding: 2px 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- 頁首 -->>
+        <header>
+            <h1 class="logo"><a href="index.htm"><mark class="yellow">TOY STORY</mark></a></h1>
+            <!-- 頁首選單 -->
+            <ul class="menu">
+                <li><a href="index.htm">>>BACK</a></li>
+
+            </ul>
+        </header>
+        <!-- About 區段 -->
+        <section id="movielines">
+            <div class="movielines">
+            <h2><mark class="red">MOVIE LINES</mark></h2>
+            <div class="cardmove">
+                <div class="card toy1">
+                    <h4 class="card-image">
+                    </h4> 
+                    <div class="button">💡「嘿，聽著，沒有人能取代我們。」<br>Hey, listen, no ones getting replaced.</div>
+                </div>
+                <div class="card toy2">
+                    <h4 class="card-image">
+                    </h4> 
+                    <div class="button">💡「對這世界來說，你可能只是某人，但對某人來說，你可能是他的全世界。」<br>To the world you may be just one person, but to one person you may be the whole world.</div>
+                </div>
+                <div class="card toy3">
+                    <h4 class="card-image">
+                    </h4> 
+                    <div class="button">💡「別因它的結束而哭泣，要為它曾經發生過而微笑。」<br>Don’t cry because it’s over; smile because it happened.</div>
+                </div>
+                <div class="card toy4">
+                    <h4 class="card-image">
+                    </h4> 
+                   <div class="button">💡「離開你的人越來越多，所以留下的人才更加重要。」<br>As more and more people leave you, the more and more important those who remain become.</div>
+                </div>
+                <div class="card toy5">
+                    <h4 class="card-image">
+                    </h4> 
+                   <div class="button">💡「不是每個道別都可以好好準備；會痛的，往往都曾讓你措手不及。」<br>Not every goodbye gives you the courtesy to prepare yourself; those that hurt are usually the ones unexpected.</div>
+                </div>
+                <div class="card toy6">
+                    <h4 class="card-image">
+                    </h4> 
+                   <div class="button">💡「雖然我很堅強，但有時候，還是需要有個人能夠握著我的手跟我說，一切都會越來越好。」<br>I’m a strong person, but every now and then I also need someone to take my hand and say everything will be okay.</div>
+                </div>
+                <div class="card toy7">
+                    <h4 class="card-image">
+                    </h4> 
+                   <div class="button">💡「做好你現在的角色。」<br>Be who you are right now.</div>
+                </div>
+                <div class="card toy8">
+                    <h4 class="card-image">
+                    </h4> 
+                   <div class="button">💡「如果你總是坐在架子上，那麼你永遠不會被發現。」<br>If you sit on a shelf for the rest of your life, you’ll never find out.</div>
+                </div>
+                <div class="card toy9">
+                    <h4 class="card-image">
+                    </h4> 
+                   <div class="button">💡「他與其他牛仔一樣，勇敢、善良、聰明，但胡迪之所以與眾不同，是因為他永遠不會放棄你，
+                    <br>無論發生什麼事，他都會在你身邊。」<br>He’s brave, like a cowboy should be. And kind and smart. But the thing that makes Woody special, is he’ll never give up on you…ever. He’ll be there for you, no matter what.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- footer -->
+        <footer>
+            <div class="footer">
+            <!-- 使用 Font Awesome 的 Twitter 圖示 -->
+            <a href="https://www.facebook.com/disneymoviesTaiwan/?locale=zh_TW" target="_blank"><i class="fab fa-facebook fa-3x" style="color: #003060;"></i></a>
+            <a href="https://twitter.com/disneychannel?lang=zh-Hant" target="_blank"><i class="fab fa-twitter fa-3x" style="color: #003060;"></i></a>
+            <a href="https://www.instagram.com/disney/" target="_blank"><i class="fab fa-instagram fa-3x" style="color: #003060;"></i></a>
+            <p>© 2023 Design by 11136023. Disney Pixar. All Rights Reserved.</p>
+        </div>
+        </footer>
+    </body>
+    </html>

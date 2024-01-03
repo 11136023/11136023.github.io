@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11136023</title>
+    <!-- 引入 Google Fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kalnia:wght@400;600&display=swap');
+
+        /* 全域樣式設定 */
+        html {
+            scroll-behavior: smooth;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        /* Body 樣式 */
+        body {
+            margin: 0;
+            background-color: 	#C4E1FF;
+            font-family: 'Kalnia', serif;
+        }
+        /* 包裹區塊樣式 */
+        .wrap {
+            width: 940px;
+            margin: 20px auto;
+        }
+        /* 標題二樣式 */
+        h2 {
+            font-weight: normal;
+            margin: 20px 0;
+        }
+        /* 區段樣式 */
+        section {
+            font-size: 30px;
+            width: 100%;
+            height: 1300px;
+            padding: 10px 30px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            background-color: #ECF5FF;    
+            display: flex;/* 物體水平放 */
+            gap: 15px;/* 物體之間的距離 */
+        }
+        /* 頁首樣式 */
+        header {
+            z-index: 2; /* 高於地圖的 z-index */
+            width: 100%;
+            height: 80px;
+            margin-bottom: 20px;
+            padding: 0px 30px;
+            border-radius: 20px;
+            background-color: 	#F0F0F0;
+            display: flex;/* 標籤左右排列 */
+            align-items: center;/* 元素上下居中 */
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 0 10px 0 #003060;
+        }
+        /* 頁首超連結樣式 */
+        header a {
+            color: #003060;
+            display: block;
+            text-decoration: none;
+        }
+        header h1 {
+            margin-right: auto;
+            text-align: center;
+        }
+        /* 頁首選單樣式 */
+        ul.menu {
+            /* 選單橫向排列 */
+            display: flex;
+            /* 把圓點去掉 */
+            list-style: none;
+            /* 清除額外空間 */
+            padding: 0;
+            margin: 0;
+            gap: 12px;
+        }
+        /* 平時超連結的狀態 */
+        ul.menu a {
+            text-align: center;
+            font-size: 15px;
+            padding: 10px 10px;
+        }
+        /* :hover當滑鼠移動到超連結後產生的事件 */
+        ul.menu a:hover {
+            background-color: #66B3FF;
+            border-radius: 20px;
+        }
+        footer {
+        padding-top: 10px;
+        text-align: center; /* 讓所有內容置中 */
+        font-size: 13px;
+        text-align: center;
+        width: 940px;
+        line-height: 30px;
+        background-color: #F0F0F0;
+        border-top: 5px solid#003060;
+        border-radius: 20px;
+        margin: 0 auto;
+        }
+        footer a {
+        margin-right: 10px; /* 調整圖示之間的右邊距 */
+        }
+        footer p {
+        margin-top: 0px; /* 調整文字與圖示之間的上邊距 */
+        color: #003060;
+        }
+
+        .moviemusic ul {
+        display: inline-block; /* 讓按鈕可以正確放置在一行內 */
+        padding-left: 0; /* 清除 ul 的預設內邊距 */
+        font-size: 20px;
+        padding: 0px 30px;
+        text-align: center; /* 讓所有內容置中 */
+        position: relative;
+        justify-content: flex-start; /* 内容靠左對齊 */
+        top: 0px; /* 元素向下移動像素 */
+        left: 100px; /* 内容向右移動像素 */
+        }
+        mark.red {
+	    background: linear-gradient(transparent 40%,rgba(255,255,255,0) 40%, #fa8686 90%,transparent 95%);	
+        padding: 2px 1px;
+        }
+        mark.yellow {
+	    background: linear-gradient(transparent 40%,rgba(255,255,255,0) 40%, #FFF176 90%,transparent 95%);	
+        padding: 2px 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- 頁首 -->>
+        <header>
+            <h1 class="logo"><a href="index.htm"><mark class="yellow">TOY STORY</mark></a></h1>
+            <!-- 頁首選單 -->
+            <ul class="menu">
+                <li><a href="index.htm">>>BACK</a></li>
+
+            </ul>
+        </header>
+        <!-- About 區段 -->
+        <section id="moviemusic">
+            <div class="moviemusic">
+            <h2><mark class="red">MOVIE MUSIC</mark></h2>
+                <ul>
+                    <li>Toy Story: "You've Got a Friend In Remix" OFFICIAL VERSION</li>
+                    <br>
+                    <!-- YouTube 嵌入式視頻代碼 -->
+                    <iframe width="600" height="300" src="https://www.youtube.com/embed/lPoNpJ29bvE?si=qR16h8lEfIqRWDNU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
+                    <br><br>                 
+                    <li>“When She Loved Me” from Toy Story 2 | Pixar</li>
+                    <br>
+                    <!-- YouTube 嵌入式視頻代碼 -->
+                    <iframe width="600" height="300" src="https://www.youtube.com/embed/j9Vit2vq22M?si=_DIM7SK827E7fRUG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <br><br>                 
+                    <li>Toy story 4 I can't let you throw yourself away</li>
+                    <br>
+                    <!-- YouTube 嵌入式視頻代碼 -->
+                    <iframe width="600" height="300" src="https://www.youtube.com/embed/g7axoTlok9Y?si=S-rxrcgLhy-aY8c2&amp;start=42" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </ul>
+            </div>
+        </section>
+
+        <!-- footer -->
+        <footer>
+            <div class="footer">
+            <!-- 使用 Font Awesome 的 Twitter 圖示 -->
+            <a href="https://www.facebook.com/disneymoviesTaiwan/?locale=zh_TW" target="_blank"><i class="fab fa-facebook fa-3x" style="color: #003060;"></i></a>
+            <a href="https://twitter.com/disneychannel?lang=zh-Hant" target="_blank"><i class="fab fa-twitter fa-3x" style="color: #003060;"></i></a>
+            <a href="https://www.instagram.com/disney/" target="_blank"><i class="fab fa-instagram fa-3x" style="color: #003060;"></i></a>
+            <p>© 2023 Design by 11136023. Disney Pixar. All Rights Reserved.</p>
+        </div>
+        </footer>
+    </body>
+    </html>
